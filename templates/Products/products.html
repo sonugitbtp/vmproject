@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block base_template %}
+<H1> products</H1>
+{prod_cat_list.prod_cat_name}
+
+<ul>
+{% for product in prod_cat_list %}
+{{product.prod_cat_name}}<br>
+
+<div>
+
+    <img  src="{{product.prod_cat_img.url}}"/>
+<br>
+</div>
+
+
+<div>
+<h1>
+    click for show items in category
+</h1>
+<a href="{% url 'items_list'%}"><img  src="{{product.prod_cat_img.url}}"/></a>
+</div>
+
+
+
+
+{{product.prod_cat_img}}
+    <br>
+{{product.prod_cat_desc}}
+{% endfor %}
+
+
+</ul>
+
+
+{%  endblock %}

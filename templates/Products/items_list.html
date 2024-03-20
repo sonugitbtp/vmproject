@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block base_template %}
+<H1> Items</H1>
+
+{% if items %}
+{% for item in items %}
+
+
+
+    {{item.item_price}}
+    <img src="{{item.item_image.url}}" />
+    
+    {{item.item_rec_qty}}
+    {{item.item_rec_date}}
+    
+
+
+
+
+
+{% endfor %}
+{% endif %}
+
+{%  endblock %}

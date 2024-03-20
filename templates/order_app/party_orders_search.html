@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="GET" action= 'party_search'>
+      {% csrf_token %}
+
+        <select  name="p_name" >
+            {% for x in  orders %}
+    <option value="{{x}}">
+        
+        {{x}}
+        
+    
+    </option>
+    {% endfor %}
+    
+        </select>
+    <input type="date" name="from_date">date
+    <input type="date" name="to_date">To Date
+        <button type=" submit">Show Orders</button>
+    </form>
+
+
+    
+    
+
+    <h1>welcome</h1>
+</body>
+</html>

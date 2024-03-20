@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form method="POST"  >
+{% csrf_token %}
+{{party_form.as_p}}
+    <h1> child</h1>
+
+    {{child_form.management_form}}
+    {% for form in child_form %}
+
+    <div class="new-form">
+        {{form.as_p}}
+
+    </div>
+    
+
+    {% endfor %}
+<button type="submit"> submit</button>
+
+    </form>
+
+
+    <button id="add-form" type="button">add order</button>
+
+    <h1>empty form</h1>
+    <div id="emp_form" style="display: none;">
+      {{child_form.empty_form}}
+    </div>
+  <script>
+    $(document).ready( function(){
+
+      $("#add-form").click(function(e){
+         e.preventDefault();
+         var count=parseInt($('#id_New_Parent-TOTAL_FORMS').val());
+         $('.new-form').append($('#emp_form').html().replace(/__prefix__/g,count));
+
+         $('#id_New_Parent-TOTAL_FORMS').attr('value',count+1)
+
+       alert(count);
+
+
+    });
+
+    });
+    
+  </script>
+    
+</body>
+</html>

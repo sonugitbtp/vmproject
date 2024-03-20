@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,th,tr,td{border:  1px solid black;
+    border-collapse: collapse;}
+</style>
+<body>
+    <h1>search details</h1>
+
+  <h1>Party Name:{{p_name}}</h1>
+
+
+<table >
+    <tr>
+        <th>Sr.No</th>
+        <th>Order_Date</th>
+        <th>Product Category</th>
+        <th>Items Name</th>
+        <th>Item quantity</th>
+        <th>Item Rate</th>
+        <th>Total Value</th>
+        <th> Gst Rate</th>
+        <th>Total Amount Receivable</th>
+
+    </tr>
+    {% for x in orders %}
+    <tr>
+        <td>1</td>
+        <td>{{x.order_date}}</td>
+        <td>cat</td>
+        <td>item name</td>
+        <td>item quantity</td>
+        
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+    
+       
+    {% for x in name %}
+
+    {{x.id}}
+    {{x.party_name}}
+    {{x.party_GST}}
+    {{x.party_state}}
+    {% endfor %}
+<h1>
+    parent orders
+</h1>
+    {% for x in orders %}
+<l1>{{x.id}}</l1>
+    <l1>{{x.party_name }}</l1>
+    {{x.order_rev_emp_name}}
+    {{x.order_date}}
+    <h1>child order</h1>
+
+    {{x.New_Parent.all}}
+    <br>
+    {% endfor %}
+    
+</body>
+</html>
+
